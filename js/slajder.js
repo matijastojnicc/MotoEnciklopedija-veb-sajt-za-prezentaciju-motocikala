@@ -1,11 +1,11 @@
 $(document).ready(function() {
-    $('.slajder-kontejner').each(function() {
-        var $kontejner = $(this);
-        var $slajdovi = $kontejner.find('.slajd');
-        var indeks = 0;
+    $(".slajder-kontejner").each(function() {
+        const $kontejner = $(this);
+        const $slajdovi = $kontejner.find(".slajd");
+        let indeks = 0;
 
         function prikazi(noviIndeks) {
-            $slajdovi.eq(indeks).removeClass('aktivan');
+            $slajdovi.eq(indeks).removeClass("aktivan");
             indeks = noviIndeks;
 
             if (indeks >= $slajdovi.length){
@@ -15,13 +15,13 @@ $(document).ready(function() {
                 indeks = $slajdovi.length - 1;
             }
 
-            $slajdovi.eq(indeks).addClass('aktivan');
+            $slajdovi.eq(indeks).addClass("aktivan");
         }
 
-        $kontejner.find('.prethodni').click(function() { 
+        $kontejner.find(".prethodni").click(function() { 
             prikazi(indeks - 1); 
         });
-        $kontejner.find('.sledeci').click(function() { 
+        $kontejner.find(".sledeci").click(function() { 
             prikazi(indeks + 1); 
         });
     });
